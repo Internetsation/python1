@@ -1,11 +1,16 @@
-# Project 5!
+# Project 5 feature 1
 # This program asks for the user's name and greets them.
 # If the user is "Obiwan", they are asked to fight the empire!
 # Otherwise they are asked to deliver the droid to Obiwan.
 
 
 # Get user name
+
+
+from random import randrange
+
 name = input("Tell me your name:")
+destruct = randrange(15)
 
 
 def my_function():
@@ -26,7 +31,12 @@ def jedi_request(name):
         print(f'{name} \n This is not the droid you are looking for! \n please return this droid to Obiwan-Kenobi!  ')
 
 
+def self_destruct():
+    print(f" This message will self destruct in {destruct} seconds")
+
+
 if __name__ == '__main__':
     # Run file
     my_function()
     jedi_request(name)
+    self_destruct()
