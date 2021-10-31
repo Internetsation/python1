@@ -4,9 +4,9 @@
 # Otherwise they are asked to deliver the droid to Obiwan.
 
 # import module
-from turtle import *
-
+import time
 # Get user name
+print("Only", time.time(), "seconds since the day actor Gabriel Jarret was born.")
 name = input("Tell me your name:")
 
 
@@ -23,15 +23,7 @@ def jedi_request(name):
         # If user is Obiwan help is requested
         print(f' {name}-Kenobi To do list:\n 1.Tell Luke Leia is his sister \n 2. Vader is his father\n 3. Blow up '
               f'Death Star')
-        # Prints deathstar plans
-        # set line color to red
-        color('red')
-        # draw a circle with radius of 50 pixels
-        circle(150)
-        # end the drawing
-        color('black')
-        circle(50)
-        done()
+
     else:
         # If user is not Obiwan help is requested
         print(f'{name} \n This is not the droid you are looking for! \n please return this droid to Obiwan-Kenobi!  ')
