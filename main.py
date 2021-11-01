@@ -1,20 +1,13 @@
-# Project 5!
-# This program asks for the user's name and greets them.
-# If the user is "Obiwan", they are asked to fight the empire!
-# Otherwise they are asked to deliver the droid to Obiwan.
+# Project 6! strings3
+# This program reads an input from the user then breaks up the sentence into separate lines.
+# The sentence is divided with two different functions that serve the same purpose
 
+# Get user input
+sentence = input('Enter a Sentence: ').lower()
+words = sentence.split()
 
-# Get user name
-name = input("Tell me your name:")
-
-
-def my_function():
-    # Print user greeting
-    while name == "Obiwan":
-        break
-    else:
-        print(f'Hello {name}')
-
+def my_sentence():
+    for i in words
 
 def jedi_request(name):
     if name == "Obiwan":
