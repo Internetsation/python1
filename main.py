@@ -1,25 +1,60 @@
-# Project 6! strings3
-# This program reads an input from the user then breaks up the sentence into separate lines.
-# The sentence is divided with two different functions that serve the same purpose
+# Project 7 regex
+# This program imports the re and os modules
+# *** I found that the os.uname incompatible with my machine so I have used the "platform" module instead ***
+# The platform module provides info regarding the users os.
+# The re module searches the data provided from the os module using regular expressions (regex)
 
-# Get user input
-sentence = input('Enter a Sentence: ').lower()
-words = sentence.split()
+import platform
+import re
 
-def my_sentence():
-    for i in words
+# Search patterns
+pattern1 = re.compile("^windows", re.IGNORECASE)
+pattern2 = re.compile('64')
+pattern3 = re.compile('^Windows')
+pattern4 = re.compile('\\w', re.ASCII)
+pattern5 = re.compile('\d')
+# Takes data from platform modules and converts to strings
+# Returns a namedtuple() containing six attributes: system, node, release, version, machine, and processor.
+test_string1 = ' '.join(platform.uname())
+# Returns a string identifying the Python implementation. Possible values : ‘CPython’, ‘IronPython’, ‘Jython’, ‘PyPy’.
+test_string2 = ''.join(platform.python_implementation())
+# Version information from Windows Registry OS release, version number, service pack and multi/single processor.
+test_string3 = ' '.join(platform.win32_ver(release='', version='', csd='', ptype=''))
+# Windows edition
+test_string4 = ''.join(platform.win32_edition())
+# Returns the (real) processor name
+test_string5 = ''.join(platform.processor())
+# Combine strings
+allstrings = test_string1 + ',\n ' + test_string2 + ',\n ' + test_string3 + ',\n ' + test_string4 + ',\n ' + \
+             test_string5
 
-def jedi_request(name):
-    if name == "Obiwan":
-        # If user is Obiwan help is requested
-        print(f' {name}-Kenobi \n Do not forget to tell Luke that Leia is his sister \n and Vader is his '
-              f'father!')
-    else:
-        # If user is not Obiwan help is requested
-        print(f'{name} \n This is not the droid you are looking for! \n please return this droid to Obiwan-Kenobi!  ')
 
+# Checks for patterns in allstrings
+def rs():
+    # looks for "Windows", prints if found
+    result1 = re.findall(pattern1, allstrings)
+    print("Result 1: \n", result1,"\n")
+
+    # Identifies and prints instances of 64
+    result2 = re.findall(pattern2, allstrings)
+    print("Result 2: \n", result2,"\n")
+
+    # Replaces "Windows" with "SuperSecretMacOS"
+    real_os = 'SuperSecretMacOS'
+    result3 = re.sub(pattern3, real_os, allstrings)
+    print("Result 3: \n", result3,"\n")
+
+    # Prints all non alphanumeric characters
+    result4 = re.split(pattern4, allstrings)
+    print("Result 4: \n", result4,"\n")
+
+    # Prints only digits
+    result5 = re.findall(pattern5, allstrings)
+    print("Result 5: \n", result5,"\n")
+
+    # prints the span of pattern1
+    result6 = (pattern1.match(allstrings).span())
+    print("Result 6: \n", result6,"\n")
 
 if __name__ == '__main__':
-    # Run file
-    my_function()
-    jedi_request(name)
+    rs()
