@@ -1,32 +1,34 @@
-# Project 6! String 1
-# This program reminds Obiwan what he needs to do
-# If the user is not Obiwan they are asked to return the droids to him
-# Asks user to input a new reminder list*** WIP currently causes droids to explode!
-import sys
+# Project 6! Strings2
+# This program helps Obiwan use C3P0 to translate into Droid latin a.k.a pig latin.
 
-jedi = sys.argv
+sentence = input('Hello its me, C3P0. Most droids speak Droid Latin\nPlease allow me translate for you: ').lower()
+words = sentence.split()
 
-reminders = "\n 1. These are your droids\n 2. Luke and Leia are siblings,Vader is their father\n 3. Buy blue milk"
-def droid_check():
-    # Remind Obiwan what he needs to do
-    if jedi == ['main.py', 'Obiwan']:
-        print(reminders)
-    # If the user is not Obiwan then instruct them to return his droids
+for i, word in enumerate(words):
+    # Check for vowel in first letter
+    if word[0] in 'aeiou':
+        words[i] = words[i] + "yay"
     else:
-        print(f'Hello {jedi} \n These are not the droids you are looking for! \n Return them to Obiwan-Kenobi!')
+        # set vowel checker value
+        has_vowel = False
 
-def new_to_do():
-    check = input("Would you like to create a new to do list?")
-    if check != "y":
-        print("May the force be with you")
-    else:
-        remind1 = input("What do you need to remember?")
-        remind1 = remind1.swapcase()
-        print("~Translating to droid~"*10)
-        print(remind1*5,end="\nWARNING!\nDroid malfunction!\nFatal error!!\nSelf destruct imminent!!!!\nbeeEEoupp")
+        for j, letter in enumerate(word):
+            if letter in 'aeiou':
+                words[i] = word[j:] + word[:j] + "yay"
+                has_vowel = True
+                break
+
+            # if word begins with a consonant add "ay"
+            if has_vowel == False:
+                words[i] = words[i] + "ay"
+
+droid_latin = ' '.join(words)
+print("Droid Latin: ", droid_latin)
 
 
 # Run file
-if __name__ == '__main__':
-    droid_check()
-    new_to_do()
+
+
+def main():
+    if __name__ == '__main__':
+        main()
