@@ -1,32 +1,48 @@
-# Project 5!
-# This program asks for the user's name and greets them.
-# If the user is "Obiwan", they are asked to fight the empire!
-# Otherwise they are asked to deliver the droid to Obiwan.
+# The Bird class gives two attributes to each bird
+# It has  _init_functions that set each birds name, species and age.
+# The script runs three times and each time the user is prompted to give the names, species and age of each bird
+# The attributes of each bird from the user is displayed
+
+class Bird:
+
+    def __init__(self, name, species, age):
+        self.__name = name
+        self.__species = species
+        self.__age = age
+
+    def set_name(self, name):
+        self.__name = name
+
+    def set_species(self, species):
+        self.__species = species
+
+    def set_age(self, age):
+        self.__age = age
+
+    def get_name(self):
+        return self.__name
+
+    def get_species(self):
+        return self.__species
+
+    def get_age(self):
+        return self.__age
 
 
-# Get user name
-name = input("Tell me your name:")
+def main():
 
+    birdCount = int(0)
 
-def my_function():
-    # Print user greeting
-    while name == "Obiwan":
-        break
-    else:
-        print(f'Hello {name}')
+    while birdCount < 3:
+        bird_name = input("Please enter a name for your bird:  ")
+        bird_species = input("Please enter the species of the bird:  ")
+        bird_age = float(input("Please enter the age of this bird:  "))
 
+        bird_stats = Bird(bird_name, bird_species, bird_age)
 
-def jedi_request(name):
-    if name == "Obiwan":
-        # If user is Obiwan help is requested
-        print(f' {name}-Kenobi \n Do not forget to tell Luke that Leia is his sister \n and Vader is his '
-              f'father!')
-    else:
-        # If user is not Obiwan help is requested
-        print(f'{name} \n This is not the droid you are looking for! \n please return this droid to Obiwan-Kenobi!  ')
+        print("This Bird's name is: ", bird_stats.get_name())
+        print("This bird is a: ", bird_stats.get_species())
+        print("The birds age is: ", bird_stats.get_age())
+        birdCount += 1
 
-
-if __name__ == '__main__':
-    # Run file
-    my_function()
-    jedi_request(name)
+main()
