@@ -1,32 +1,20 @@
-# Project 5!
-# This program asks for the user's name and greets them.
-# If the user is "Obiwan", they are asked to fight the empire!
-# Otherwise they are asked to deliver the droid to Obiwan.
+# This program has three functions
+# 1. Prompt user for name and print to screen
+# 2. Prompt user for a number to be squared and printed to screen.
+# 3. Prompts user for a word and prints the number of characters in that word to the screen.
+
+def main():
+    char_counter = 0
+    user_name = input("Please enter your name:  ")
+    user_number = float(input("Please enter a number to be squared:  "))
+    user_word = input("Please enter a word that you would like to know how many characters it contains:  ")
+    char_counter += len(user_word)
+
+    user_number = (user_number * user_number)
+
+    print("Your name is: ", user_name)
+    print("This number squared is a: ", user_number)
+    print("The word you entered has ", char_counter, " characters")
 
 
-# Get user name
-name = input("Tell me your name:")
-
-
-def my_function():
-    # Print user greeting
-    while name == "Obiwan":
-        break
-    else:
-        print(f'Hello {name}')
-
-
-def jedi_request(name):
-    if name == "Obiwan":
-        # If user is Obiwan help is requested
-        print(f' {name}-Kenobi \n Do not forget to tell Luke that Leia is his sister \n and Vader is his '
-              f'father!')
-    else:
-        # If user is not Obiwan help is requested
-        print(f'{name} \n This is not the droid you are looking for! \n please return this droid to Obiwan-Kenobi!  ')
-
-
-if __name__ == '__main__':
-    # Run file
-    my_function()
-    jedi_request(name)
+main()
